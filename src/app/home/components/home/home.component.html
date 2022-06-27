@@ -1,0 +1,12 @@
+<div *ngIf="vm$ | async as categories">
+    <div *ngIf="categories.length > 0; else addCategory">
+        {{categories | json}}
+    </div>
+    <ng-template #addCategory>
+        <label for="categoryInput">
+            Comma separated categories
+        </label>
+        <input type="text" id="categoryInput" class="form-control" [formControl]="categoryControl">
+        <button class="btn btn-primary" (click)="saveCategories()">Save</button>
+    </ng-template>
+</div>
